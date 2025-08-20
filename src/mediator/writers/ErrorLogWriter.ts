@@ -15,6 +15,7 @@ export class ErrorLogWriter {
 
   async finalize() {
     const content = this.lines.join("\n");
-    await fs.writeFile("error.log", content, "utf-8");
+    await fs.mkdir("src/output", { recursive: true });
+    await fs.writeFile("src/output/error.log", content, "utf-8");
   }
 }

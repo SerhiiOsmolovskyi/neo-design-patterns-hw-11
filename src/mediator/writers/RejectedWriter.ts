@@ -11,6 +11,7 @@ export class RejectedWriter {
 
   async finalize() {
     const content = this.lines.join("\n");
-    await fs.writeFile("rejected.jsonl", content, "utf-8");
+    await fs.mkdir("src/output", { recursive: true });
+    await fs.writeFile("src/output/rejected.jsonl", content, "utf-8");
   }
 }
